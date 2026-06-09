@@ -709,12 +709,7 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
             annotations=[dict(text=f"<b>{total}</b><br>Reviews", x=0.5, y=0.5, font_size=16, font_color="#94A3B8", showarrow=False)],
         )
         st.plotly_chart(apply_plotly_theme(fig_donut), use_container_width=True)
-        if "charts" not in st.session_state:
-            st.session_state["charts"] = []
-        try:
-            st.session_state["charts"].append(base64.b64encode(fig_donut.to_image(format="png")).decode("utf-8"))
-        except Exception as e:
-            pass
+        pass
 
     with chart2:
         # Aspect Sentiment Grouped Bar
@@ -738,10 +733,7 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
                 yaxis=dict(title="Percentage (%)", range=[0, 100]),
             )
             st.plotly_chart(apply_plotly_theme(fig_bar), use_container_width=True)
-            try:
-                st.session_state["charts"].append(base64.b64encode(fig_bar.to_image(format="png")).decode("utf-8"))
-            except:
-                pass
+            pass
         else:
             st.info("No aspect data found in reviews.")
 
@@ -783,10 +775,7 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
             yaxis=dict(autorange="reversed"),
         )
         st.plotly_chart(apply_plotly_theme(fig_heat), use_container_width=True)
-        try:
-            st.session_state["charts"].append(base64.b64encode(fig_heat.to_image(format="png")).decode("utf-8"))
-        except:
-            pass
+        pass
 
         st.markdown("<div style='height: 16px'></div>", unsafe_allow_html=True)
 

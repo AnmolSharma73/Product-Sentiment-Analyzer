@@ -3,7 +3,7 @@ import spacy
 import nltk
 from nltk.tokenize import sent_tokenize
 import pandas as pd
-from typing import List
+from typing import List, Optional, Any
 import contractions
 from utils.constants import NEGATION_WORDS
 from utils.helpers import setup_logger
