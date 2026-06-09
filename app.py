@@ -713,7 +713,7 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
         try:
             st.session_state["charts"].append(base64.b64encode(fig_donut.to_image(format="png")).decode("utf-8"))
         except Exception as e:
-            logger.error(f"Failed to encode fig_donut: {e}")
+            pass
 
     with chart2:
         # Aspect Sentiment Grouped Bar
