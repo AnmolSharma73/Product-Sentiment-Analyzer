@@ -152,7 +152,7 @@ padding: 8px 0 4px 0;
 font-family: 'Space Grotesk', sans-serif;
 font-size: 1.7rem;
 font-weight: 700;
-background: linear-gradient(135deg, var(--text-color) 0%, #7C3AED 50%, #06B6D4 100%);
+background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 margin: 0;
