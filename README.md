@@ -1,12 +1,12 @@
 # Product Sentiment Analyzer
 
-A full-stack Python application for extracting Aspect-Based Sentiment Analysis (ABSA) from product reviews and generating actionable AI insights.
+A full-stack Python application for extracting Aspect-Based Sentiment Analysis (ABSA) from product reviews and generating actionable insights — all locally, no API keys required.
 
 ## Features
-- **Universal File Parser**: Ingests `.csv`, `.xlsx`, `.json`, `.pdf`, `.docx`, and more.
-- **Aspect-Based Sentiment**: Analyzes sentiments specifically for battery, camera, display, etc., using a hybrid rule-based (spaCy) and BERT model approach.
-- **AI Insights**: Integrates with Anthropic's Claude API to generate structured executive summaries and recommendations.
-- **Interactive Dashboard**: Streamlit UI with Plotly charts and WordClouds.
+- **Universal File Parser**: Ingests `.csv`, `.xlsx`, `.json`, `.jsonl`, `.txt`, `.pdf`, `.docx`, `.xml`, and `.parquet` files.
+- **Aspect-Based Sentiment**: Analyzes sentiments for battery, camera, display, price, build quality, performance, software, and delivery using a hybrid rule-based (spaCy + VADER) and optional DeBERTa model approach.
+- **Local Insights Engine**: Generates executive summaries, strengths, issues, and recommendations — all computed locally from the data.
+- **Interactive Dashboard**: Premium Streamlit UI with Plotly charts, heatmaps, and WordClouds.
 - **Export Reports**: Download insights as PDF, Excel, DOCX, or JSON.
 
 ## Setup Instructions
@@ -14,7 +14,7 @@ A full-stack Python application for extracting Aspect-Based Sentiment Analysis (
 **1. Clone and Navigate**
 ```bash
 git clone https://github.com/AnmolSharma73/Product-Sentiment-Analyzer.git
-cd product_sentiment_analyzer
+cd Product-Sentiment-Analyzer
 ```
 
 **2. Install Dependencies**
@@ -24,32 +24,27 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
 
-**3. Configure Environment**
-Copy `.env.example` to `.env` and add your Anthropic API Key.
-```bash
-cp .env.example .env
-```
-Open `.env` and set `ANTHROPIC_API_KEY=your_key_here`
-
-**4. Run Application**
+**3. Run Application**
 ```bash
 streamlit run app.py
 ```
 
 ## Folder Structure
 ```
-product_sentiment_analyzer/
+Product-Sentiment-Analyzer/
 ├── app.py                         ← Streamlit dashboard
 ├── requirements.txt               ← Dependencies
+├── .streamlit/
+│   └── config.toml                ← Theme and server config
 ├── core/
 │   ├── file_parser.py             ← File ingestion (.csv, .pdf, etc.)
 │   ├── preprocessor.py            ← Text cleaning & tokenization
 │   ├── aspect_extractor.py        ← Aspect and phrase extraction
-│   ├── sentiment_analyzer.py      ← VADER / BERT scoring
-│   ├── insights_engine.py         ← Claude AI integration
+│   ├── sentiment_analyzer.py      ← VADER / DeBERTa scoring
+│   ├── insights_engine.py         ← Rule-based insights generation
 │   └── report_generator.py        ← Export to PDF/Excel/DOCX/JSON
 ├── models/
-│   └── absa_model.py              ← HuggingFace BERT Wrapper
+│   └── absa_model.py              ← HuggingFace DeBERTa Wrapper
 ├── utils/
 │   ├── constants.py               ← Configs and aspect definitions
 │   └── helpers.py                 ← Utilities
@@ -65,7 +60,7 @@ product_sentiment_analyzer/
 | TXT/PDF/DOCX/XML | Unstructured text. Auto-splits into sentences/paragraphs. |
 
 ## Adding a New Aspect Category
-To add a new aspect category, simply open `utils/constants.py` and add it to the `ASPECT_KEYWORDS` dictionary:
+Open `utils/constants.py` and add it to the `ASPECT_KEYWORDS` dictionary:
 ```python
 ASPECT_KEYWORDS = {
     ...

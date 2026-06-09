@@ -1,12 +1,7 @@
-# ============================================================
 # Product Sentiment Analyzer — Dependencies
-# ============================================================
 
 # --- UI / Dashboard ---
 streamlit
-
-# --- AI / LLM ---
-anthropic
 
 # --- NLP / Deep Learning ---
 transformers

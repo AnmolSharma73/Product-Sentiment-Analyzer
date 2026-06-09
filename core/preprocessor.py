@@ -3,7 +3,7 @@ import spacy
 import nltk
 from nltk.tokenize import sent_tokenize
 import pandas as pd
-from typing import List, Optional, Dict, Any
+from typing import List
 import contractions
 from utils.constants import NEGATION_WORDS
 from utils.helpers import setup_logger
@@ -24,14 +24,17 @@ class Preprocessor:
     Uses spaCy for robust NLP tasks and NLTK for sentence tokenization.
     """
     
-    def __init__(self):
-        try:
-            # Load spaCy model
-            self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            logger.warning("spaCy en_core_web_sm model not found. Attempting to download...")
-            spacy.cli.download("en_core_web_sm")
-            self.nlp = spacy.load("en_core_web_sm")
+    def __init__(self, nlp=None):
+        if nlp is not None:
+            self.nlp = nlp
+        else:
+            try:
+                # Load spaCy model
+                self.nlp = spacy.load("en_core_web_sm")
+            except OSError:
+                logger.warning("spaCy en_core_web_sm model not found. Attempting to download...")
+                spacy.cli.download("en_core_web_sm")
+                self.nlp = spacy.load("en_core_web_sm")
             
         # Get default spaCy stopwords
         self.default_stopwords = self.nlp.Defaults.stop_words

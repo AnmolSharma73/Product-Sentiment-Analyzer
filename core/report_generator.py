@@ -4,11 +4,10 @@ import base64
 import pandas as pd
 from typing import Dict, Any, List
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
-from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 import docx
-from docx.shared import Pt, Inches
+from docx.shared import Inches
 from openpyxl.styles import PatternFill
 from utils.helpers import setup_logger
 

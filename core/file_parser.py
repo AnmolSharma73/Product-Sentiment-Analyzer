@@ -1,10 +1,9 @@
 import io
 import os
 import mimetypes
-from typing import List, Union, Any
+from typing import List, Any
 import pandas as pd
 import json
-import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 import pdfplumber
 import docx

@@ -1,7 +1,7 @@
+import spacy
 import pandas as pd
 from typing import Dict, Any, List
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import emoji
 from core.aspect_extractor import AspectExtractor
 from core.preprocessor import Preprocessor
 from utils.constants import NEGATION_WORDS
@@ -15,10 +15,18 @@ class SentimentAnalyzer:
     rule-based extraction, VADER sentiment scoring, and optional BERT scoring.
     """
     
-    def __init__(self):
+    def __init__(self, use_bert=False):
         self.vader = SentimentIntensityAnalyzer()
-        self.extractor = AspectExtractor()
-        self.preprocessor = Preprocessor()
+        
+        # Create ONE shared spaCy instance for all NLP components
+        try:
+            nlp = spacy.load("en_core_web_sm")
+        except OSError:
+            spacy.cli.download("en_core_web_sm")
+            nlp = spacy.load("en_core_web_sm")
+        
+        self.preprocessor = Preprocessor(nlp=nlp)
+        self.extractor = AspectExtractor(nlp=nlp, use_bert=use_bert)
         
         # Basic emotion mapping
         self.emotion_keywords = {
@@ -83,22 +91,22 @@ class SentimentAnalyzer:
         is_short = len(tokens) < 5
         is_all_caps = text.isupper() and len(text) > 5
         
-        # Determine overall sentiment
+        # Determine overall sentiment using cleaned text
         overall_vader = self._get_vader_score(cleaned_text)
         
-        # Extract aspects and opinion phrases
-        extracted_aspects = self.extractor.extract(text)
+        # Extract aspects and opinion phrases using cleaned text
+        extracted_aspects = self.extractor.extract(cleaned_text)
         
         aspects_analysis = {}
         for aspect, phrases in extracted_aspects.items():
             # Create a context string from phrases for scoring
-            context = " ".join(phrases) if phrases else text
+            context = " ".join(phrases) if phrases else cleaned_text
             
             # Primary score: VADER on context
             vader_result = self._get_vader_score(context)
             
             # Secondary score: BERT if available
-            bert_result = self.extractor.get_bert_sentiment(text, aspect)
+            bert_result = self.extractor.get_bert_sentiment(cleaned_text, aspect)
             
             if bert_result:
                 # Weighted combination if BERT is active

@@ -1,6 +1,6 @@
 import spacy
 from typing import Dict, List, Any
-from utils.constants import ASPECT_KEYWORDS, USE_BERT
+from utils.constants import ASPECT_KEYWORDS
 from models.absa_model import ABSAModel
 from utils.helpers import setup_logger
 
@@ -13,19 +13,30 @@ class AspectExtractor:
     an optional BERT layer for advanced ABSA.
     """
     
-    def __init__(self):
-        try:
-            self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            spacy.cli.download("en_core_web_sm")
-            self.nlp = spacy.load("en_core_web_sm")
+    def __init__(self, nlp=None, use_bert=False):
+        if nlp is not None:
+            self.nlp = nlp
+        else:
+            try:
+                self.nlp = spacy.load("en_core_web_sm")
+            except OSError:
+                spacy.cli.download("en_core_web_sm")
+                self.nlp = spacy.load("en_core_web_sm")
             
+        # Build keyword → aspect mapping for n-gram matching
         self.aspect_mapping = {}
+        self.all_keywords = set()
+        self.max_keyword_len = 1  # track max n-gram size needed
         for aspect, keywords in ASPECT_KEYWORDS.items():
             for kw in keywords:
-                self.aspect_mapping[kw.lower()] = aspect
+                kw_lower = kw.lower()
+                self.aspect_mapping[kw_lower] = aspect
+                self.all_keywords.add(kw_lower)
+                word_count = len(kw_lower.split())
+                if word_count > self.max_keyword_len:
+                    self.max_keyword_len = word_count
                 
-        self.use_bert = USE_BERT
+        self.use_bert = use_bert
         self.absa_model = None
         
         if self.use_bert:
@@ -68,9 +79,14 @@ class AspectExtractor:
         
         return aspect_token.text
 
+    def _generate_ngrams(self, words: List[str], n: int) -> List[str]:
+        """Generates n-grams from a list of words."""
+        return [" ".join(words[i:i+n]) for i in range(len(words) - n + 1)]
+
     def extract(self, text: str) -> Dict[str, List[str]]:
         """
-        Rule-based extraction of aspects and their opinion phrases.
+        Rule-based extraction of aspects and their opinion phrases
+        using n-gram matching for multi-word keyword support.
         
         Args:
             text (str): The review text.
@@ -81,15 +97,38 @@ class AspectExtractor:
         if not text or not isinstance(text, str):
             return {}
             
-        doc = self.nlp(text.lower())
+        text_lower = text.lower()
+        doc = self.nlp(text_lower)
         aspects_found: Dict[str, List[str]] = {}
         
-        for token in doc:
-            if token.pos_ in ['NOUN', 'PROPN']:
-                word = token.text
-                if word in self.aspect_mapping:
-                    standard_aspect = self.aspect_mapping[word]
-                    phrase = self._extract_opinion_phrases(doc, token)
+        # Split text into words for n-gram generation
+        words = text_lower.split()
+        
+        # Track which word positions have been matched to avoid duplicates
+        matched_positions = set()
+        
+        # Check n-grams from longest to shortest (greedy matching)
+        for n in range(self.max_keyword_len, 0, -1):
+            ngrams = self._generate_ngrams(words, n)
+            for i, ngram in enumerate(ngrams):
+                # Skip if any position in this n-gram is already matched
+                positions = set(range(i, i + n))
+                if positions & matched_positions:
+                    continue
+                    
+                if ngram in self.aspect_mapping:
+                    standard_aspect = self.aspect_mapping[ngram]
+                    matched_positions.update(positions)
+                    
+                    # Find a representative token in the spaCy doc for opinion extraction
+                    # Use the last word of the n-gram as the anchor token
+                    anchor_word = ngram.split()[-1]
+                    phrase = ngram  # default phrase is the keyword itself
+                    
+                    for token in doc:
+                        if token.text == anchor_word and token.i >= i and token.i < i + n + 2:
+                            phrase = self._extract_opinion_phrases(doc, token)
+                            break
                     
                     if standard_aspect not in aspects_found:
                         aspects_found[standard_aspect] = []

@@ -6,7 +6,7 @@ Contains the main processing modules for sentiment analysis:
   - preprocessor: Text cleaning and tokenization
   - aspect_extractor: Aspect-based keyword and BERT extraction
   - sentiment_analyzer: Polarity classification per aspect
-  - insights_engine: Claude AI insights generation
+  - insights_engine: Rule-based insights generation
   - report_generator: PDF / Excel / DOCX / JSON export
 """
 

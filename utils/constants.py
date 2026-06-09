@@ -6,7 +6,6 @@ load_dotenv()
 
 # --- Model Configuration ---
 USE_BERT = os.getenv("USE_BERT", "false").lower() == "true"
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-20250514")
 BERT_MODEL_NAME = "yangheng/deberta-v3-base-absa-v1.1"
 
 # --- Analysis Configuration ---
