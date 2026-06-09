@@ -49,35 +49,29 @@ class AspectExtractor:
     def _extract_opinion_phrases(self, doc: Any, aspect_token: Any) -> str:
         """
         Extracts the opinion phrase associated with an aspect token
-        using spaCy dependency parsing.
+        using spaCy dependency parsing to capture the full clause.
         """
-        opinion_words = []
+        # Find the root verb of the clause containing the aspect
+        clause_root = aspect_token
+        while clause_root.pos_ not in ["VERB", "AUX"] and clause_root.head != clause_root:
+            # Prevent going too far up the tree if we hit a conjunction that might link two different aspects
+            if clause_root.dep_ == "ccomp" or clause_root.dep_ == "conj":
+                break
+            clause_root = clause_root.head
+            
+        # Get all tokens in this clause's subtree, ignoring other conjuncts 
+        # to avoid pulling in sentiments for different aspects
+        clause_tokens = []
+        for t in clause_root.subtree:
+            if t.dep_ == "conj" and t != clause_root and t != aspect_token:
+                continue
+            clause_tokens.append(t)
+            
+        # Sort tokens by their position in the document
+        clause_tokens = sorted(clause_tokens, key=lambda x: x.i)
+        phrase = " ".join([t.text for t in clause_tokens])
         
-        # Check children for adjectives/adverbs modifying the aspect
-        for child in aspect_token.children:
-            if child.dep_ in ['amod', 'advmod', 'acomp', 'xcomp']:
-                opinion_words.append(child.text)
-                # Check for negations attached to the modifier
-                for sub_child in child.children:
-                    if sub_child.dep_ == 'neg':
-                        opinion_words.insert(0, sub_child.text)
-        
-        # Check head for verbs
-        head = aspect_token.head
-        if head.pos_ in ['VERB', 'ADJ']:
-            opinion_words.append(head.text)
-            for child in head.children:
-                if child.dep_ == 'neg':
-                    opinion_words.insert(0, child.text)
-                elif child.dep_ in ['advmod', 'acomp'] and child != aspect_token:
-                    opinion_words.append(child.text)
-                    
-        # Construct the phrase
-        if opinion_words:
-            # Simple heuristic: modifier + aspect
-            return f"{' '.join(opinion_words)} {aspect_token.text}"
-        
-        return aspect_token.text
+        return phrase if phrase else aspect_token.text
 
     def _generate_ngrams(self, words: List[str], n: int) -> List[str]:
         """Generates n-grams from a list of words."""

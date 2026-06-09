@@ -72,300 +72,300 @@ ASPECT_PALETTE = ["#7C3AED", "#06B6D4", "#10B981", "#F59E0B", "#EF4444", "#EC489
 # ─── Custom CSS ───────────────────────────────────────────────────────────────
 def inject_custom_css():
     st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-    /* ── Global Reset ── */
-    .stApp {
-        background: #0a0a0f;
-        font-family: 'Inter', sans-serif;
-    }
-    .stApp > header { background: transparent !important; }
-    [data-testid="stSidebar"] { display: none !important; }
-    [data-testid="collapsedControl"] { display: none !important; }
+/* ── Global Reset ── */
+.stApp {
+    background: #0a0a0f;
+    font-family: 'Inter', sans-serif;
+}
+.stApp > header { background: transparent !important; }
+[data-testid="stSidebar"] { display: none !important; }
+[data-testid="collapsedControl"] { display: none !important; }
 
-    /* ── Typography ── */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Grotesk', sans-serif !important;
-        color: #E2E8F0 !important;
-    }
-    p, span, li, div { color: #CBD5E1; }
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: #E2E8F0 !important;
+}
+p, span, li, div { color: #CBD5E1; }
 
-    /* ── Glass Card ── */
-    .glass-card {
-        background: rgba(17, 17, 24, 0.65);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(124, 58, 237, 0.15);
-        border-radius: 16px;
-        padding: 24px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .glass-card:hover {
-        border-color: rgba(124, 58, 237, 0.35);
-        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
-        transform: translateY(-2px);
-    }
+/* ── Glass Card ── */
+.glass-card {
+    background: rgba(17, 17, 24, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
+    transform: translateY(-2px);
+}
 
-    /* ── Metric Cards ── */
-    .metric-card {
-        background: rgba(17, 17, 24, 0.65);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(124, 58, 237, 0.12);
-        border-radius: 16px;
-        padding: 20px 24px;
-        text-align: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .metric-card:hover {
-        border-color: rgba(124, 58, 237, 0.4);
-        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
-        transform: translateY(-3px);
-    }
-    .metric-value {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 2rem;
-        font-weight: 700;
-        margin: 4px 0;
-        background: linear-gradient(135deg, #E2E8F0, #94A3B8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .metric-value.positive { background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .metric-value.negative { background: linear-gradient(135deg, #EF4444, #F87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .metric-value.neutral  { background: linear-gradient(135deg, #64748B, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .metric-label {
-        font-size: 0.8rem;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #64748B;
-    }
+/* ── Metric Cards ── */
+.metric-card {
+    background: rgba(17, 17, 24, 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(124, 58, 237, 0.12);
+    border-radius: 16px;
+    padding: 20px 24px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.metric-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
+    transform: translateY(-3px);
+}
+.metric-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 4px 0;
+    background: linear-gradient(135deg, #E2E8F0, #94A3B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.metric-value.positive { background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-value.negative { background: linear-gradient(135deg, #EF4444, #F87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-value.neutral  { background: linear-gradient(135deg, #64748B, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748B;
+}
 
-    /* ── Header ── */
-    .app-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 8px 0 4px 0;
-    }
-    .app-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.7rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #E2E8F0 0%, #7C3AED 50%, #06B6D4 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-        line-height: 1.2;
-    }
-    .app-subtitle {
-        font-size: 0.82rem;
-        color: #64748B;
-        margin: 0;
-        letter-spacing: 0.02em;
-    }
+/* ── Header ── */
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0 4px 0;
+}
+.app-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #E2E8F0 0%, #7C3AED 50%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 1.2;
+}
+.app-subtitle {
+    font-size: 0.82rem;
+    color: #64748B;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
 
-    /* ── Upload Area ── */
-    .upload-zone {
-        background: rgba(17, 17, 24, 0.5);
-        border: 2px dashed rgba(124, 58, 237, 0.25);
-        border-radius: 16px;
-        padding: 32px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-    .upload-zone:hover {
-        border-color: rgba(124, 58, 237, 0.5);
-        background: rgba(124, 58, 237, 0.04);
-    }
+/* ── Upload Area ── */
+.upload-zone {
+    background: rgba(17, 17, 24, 0.5);
+    border: 2px dashed rgba(124, 58, 237, 0.25);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.upload-zone:hover {
+    border-color: rgba(124, 58, 237, 0.5);
+    background: rgba(124, 58, 237, 0.04);
+}
 
-    /* ── Section Divider ── */
-    .section-divider {
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
-        margin: 36px 0;
-        border: none;
-    }
+/* ── Section Divider ── */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+    margin: 36px 0;
+    border: none;
+}
 
-    /* ── Section Heading ── */
-    .section-heading {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #E2E8F0;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .heading-accent {
-        width: 4px;
-        height: 22px;
-        background: linear-gradient(180deg, #7C3AED, #06B6D4);
-        border-radius: 2px;
-    }
+/* ── Section Heading ── */
+.section-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #E2E8F0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.heading-accent {
+    width: 4px;
+    height: 22px;
+    background: linear-gradient(180deg, #7C3AED, #06B6D4);
+    border-radius: 2px;
+}
 
-    /* ── Insight Cards ── */
-    .insight-card {
-        background: rgba(17, 17, 24, 0.65);
-        backdrop-filter: blur(16px);
-        border-radius: 14px;
-        padding: 18px 20px;
-        margin-bottom: 12px;
-        border-left: 3px solid;
-        transition: all 0.3s ease;
-    }
-    .insight-card:hover { transform: translateX(4px); }
-    .insight-card.strength { border-color: #10B981; }
-    .insight-card.issue { border-color: #EF4444; }
-    .insight-card.suggestion { border-color: #F59E0B; }
-    .insight-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: 6px;
-    }
-    .insight-title.strength { color: #10B981; }
-    .insight-title.issue { color: #EF4444; }
-    .insight-title.suggestion { color: #F59E0B; }
-    .insight-text { font-size: 0.9rem; color: #CBD5E1; line-height: 1.5; }
+/* ── Insight Cards ── */
+.insight-card {
+    background: rgba(17, 17, 24, 0.65);
+    backdrop-filter: blur(16px);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-left: 3px solid;
+    transition: all 0.3s ease;
+}
+.insight-card:hover { transform: translateX(4px); }
+.insight-card.strength { border-color: #10B981; }
+.insight-card.issue { border-color: #EF4444; }
+.insight-card.suggestion { border-color: #F59E0B; }
+.insight-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+}
+.insight-title.strength { color: #10B981; }
+.insight-title.issue { color: #EF4444; }
+.insight-title.suggestion { color: #F59E0B; }
+.insight-text { font-size: 0.9rem; color: #CBD5E1; line-height: 1.5; }
 
-    /* ── Executive Summary ── */
-    .exec-summary {
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.06));
-        border: 1px solid rgba(124, 58, 237, 0.2);
-        border-radius: 16px;
-        padding: 24px;
-        margin-bottom: 24px;
-    }
-    .exec-summary-title {
-        font-family: 'Space Grotesk', sans-serif;
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: #7C3AED;
-        margin-bottom: 8px;
-    }
-    .exec-summary-text { font-size: 0.95rem; color: #E2E8F0; line-height: 1.65; }
+/* ── Executive Summary ── */
+.exec-summary {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.06));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.exec-summary-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7C3AED;
+    margin-bottom: 8px;
+}
+.exec-summary-text { font-size: 0.95rem; color: #E2E8F0; line-height: 1.65; }
 
-    /* ── Analyze Button ── */
-    .stButton > button {
-        background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 10px 32px !important;
-        font-family: 'Space Grotesk', sans-serif !important;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        letter-spacing: 0.02em !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3) !important;
-        width: 100% !important;
-    }
-    .stButton > button:hover {
-        background: linear-gradient(135deg, #6D28D9, #5B21B6) !important;
-        box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45) !important;
-        transform: translateY(-1px) !important;
-    }
+/* ── Analyze Button ── */
+.stButton > button {
+    background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 10px 32px !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3) !important;
+    width: 100% !important;
+}
+.stButton > button:hover {
+    background: linear-gradient(135deg, #6D28D9, #5B21B6) !important;
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45) !important;
+    transform: translateY(-1px) !important;
+}
 
-    /* ── Download Buttons ── */
-    .stDownloadButton > button {
-        background: rgba(17, 17, 24, 0.65) !important;
-        backdrop-filter: blur(16px) !important;
-        color: #E2E8F0 !important;
-        border: 1px solid rgba(124, 58, 237, 0.25) !important;
-        border-radius: 12px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 500 !important;
-        transition: all 0.3s ease !important;
-        width: 100% !important;
-    }
-    .stDownloadButton > button:hover {
-        border-color: rgba(124, 58, 237, 0.5) !important;
-        background: rgba(124, 58, 237, 0.1) !important;
-        transform: translateY(-1px) !important;
-    }
+/* ── Download Buttons ── */
+.stDownloadButton > button {
+    background: rgba(17, 17, 24, 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    color: #E2E8F0 !important;
+    border: 1px solid rgba(124, 58, 237, 0.25) !important;
+    border-radius: 12px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+}
+.stDownloadButton > button:hover {
+    border-color: rgba(124, 58, 237, 0.5) !important;
+    background: rgba(124, 58, 237, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
 
-    /* ── File uploader ── */
-    [data-testid="stFileUploader"] {
-        background: transparent;
-    }
-    [data-testid="stFileUploader"] > div {
-        background: rgba(17, 17, 24, 0.4) !important;
-        border: 2px dashed rgba(124, 58, 237, 0.2) !important;
-        border-radius: 14px !important;
-    }
+/* ── File uploader ── */
+[data-testid="stFileUploader"] {
+    background: transparent;
+}
+[data-testid="stFileUploader"] > div {
+    background: rgba(17, 17, 24, 0.4) !important;
+    border: 2px dashed rgba(124, 58, 237, 0.2) !important;
+    border-radius: 14px !important;
+}
 
-    /* ── Toggle / Checkbox ── */
-    .stCheckbox label span {
-        color: #94A3B8 !important;
-        font-size: 0.85rem !important;
-    }
+/* ── Toggle / Checkbox ── */
+.stCheckbox label span {
+    color: #94A3B8 !important;
+    font-size: 0.85rem !important;
+}
 
-    /* ── Data frame ── */
-    [data-testid="stDataFrame"] {
-        border-radius: 12px;
-        overflow: hidden;
-    }
+/* ── Data frame ── */
+[data-testid="stDataFrame"] {
+    border-radius: 12px;
+    overflow: hidden;
+}
 
-    /* ── Expander ── */
-    .streamlit-expanderHeader {
-        background: rgba(17, 17, 24, 0.65) !important;
-        border-radius: 12px !important;
-        color: #E2E8F0 !important;
-        font-family: 'Space Grotesk', sans-serif !important;
-    }
+/* ── Expander ── */
+.streamlit-expanderHeader {
+    background: rgba(17, 17, 24, 0.65) !important;
+    border-radius: 12px !important;
+    color: #E2E8F0 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
 
-    /* ── Text input ── */
-    .stTextInput input {
-        background: rgba(17, 17, 24, 0.65) !important;
-        border: 1px solid rgba(124, 58, 237, 0.2) !important;
-        border-radius: 10px !important;
-        color: #E2E8F0 !important;
-        font-family: 'Inter', sans-serif !important;
-    }
-    .stTextInput input:focus {
-        border-color: rgba(124, 58, 237, 0.5) !important;
-        box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15) !important;
-    }
+/* ── Text input ── */
+.stTextInput input {
+    background: rgba(17, 17, 24, 0.65) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    border-radius: 10px !important;
+    color: #E2E8F0 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+.stTextInput input:focus {
+    border-color: rgba(124, 58, 237, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15) !important;
+}
 
-    /* ── Select box ── */
-    .stSelectbox > div > div {
-        background: rgba(17, 17, 24, 0.65) !important;
-        border: 1px solid rgba(124, 58, 237, 0.2) !important;
-        border-radius: 10px !important;
-        color: #E2E8F0 !important;
-    }
+/* ── Select box ── */
+.stSelectbox > div > div {
+    background: rgba(17, 17, 24, 0.65) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    border-radius: 10px !important;
+    color: #E2E8F0 !important;
+}
 
-    /* ── Multiselect ── */
-    .stMultiSelect > div > div {
-        background: rgba(17, 17, 24, 0.65) !important;
-        border: 1px solid rgba(124, 58, 237, 0.2) !important;
-        border-radius: 10px !important;
-    }
+/* ── Multiselect ── */
+.stMultiSelect > div > div {
+    background: rgba(17, 17, 24, 0.65) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    border-radius: 10px !important;
+}
 
-    /* ── Spinner ── */
-    .stSpinner > div { color: #7C3AED !important; }
+/* ── Spinner ── */
+.stSpinner > div { color: #7C3AED !important; }
 
-    /* ── Footer ── */
-    .app-footer {
-        text-align: center;
-        padding: 32px 0 16px 0;
-        color: #475569;
-        font-size: 0.78rem;
-        letter-spacing: 0.03em;
-    }
+/* ── Footer ── */
+.app-footer {
+    text-align: center;
+    padding: 32px 0 16px 0;
+    color: #475569;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+}
 
-    /* ── Hide Streamlit UI ── */
-    #MainMenu { visibility: hidden; }
-    footer { visibility: hidden; }
-    </style>
-    """, unsafe_allow_html=True)
+/* ── Hide Streamlit UI ── */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+</style>
+""", unsafe_allow_html=True)
 
 
 # ─── Plotly Theme ─────────────────────────────────────────────────────────────
@@ -450,11 +450,11 @@ def generate_wordcloud_fig(df):
 # ─── Helper: Section Heading ─────────────────────────────────────────────────
 def section_heading(title):
     st.markdown(f"""
-    <div class="section-heading">
-        <div class="heading-accent"></div>
-        {title}
-    </div>
-    """, unsafe_allow_html=True)
+<div class="section-heading">
+    <div class="heading-accent"></div>
+    {title}
+</div>
+""", unsafe_allow_html=True)
 
 
 def section_divider():
@@ -504,14 +504,14 @@ def main():
 
     # ── Header ────────────────────────────────────────────────────────────────
     st.markdown(f"""
-    <div class="app-header">
-        {LOGO_SVG}
-        <div>
-            <p class="app-title">Product Sentiment Analyzer</p>
-            <p class="app-subtitle">Aspect-based sentiment analysis with actionable insights</p>
-        </div>
+<div class="app-header">
+    {LOGO_SVG}
+    <div>
+        <p class="app-title">Product Sentiment Analyzer</p>
+        <p class="app-subtitle">Aspect-based sentiment analysis with actionable insights</p>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("<div style='height: 12px'></div>", unsafe_allow_html=True)
 
@@ -579,21 +579,21 @@ def main():
     # ── Guard: No results yet ─────────────────────────────────────────────────
     if "df" not in st.session_state:
         st.markdown("""
-        <div style="text-align:center; padding: 80px 20px 60px 20px;">
-            <div style="margin-bottom: 20px; opacity: 0.35;">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="64" height="64" rx="16" fill="#7C3AED" opacity="0.15"/>
-                    <path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: #475569; font-weight: 500;">
-                Upload a file and click <strong style="color: #7C3AED;">Run Analysis</strong> to get started
-            </p>
-            <p style="font-size: 0.82rem; color: #334155; margin-top: 8px;">
-                Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
+<div style="text-align:center; padding: 80px 20px 60px 20px;">
+    <div style="margin-bottom: 20px; opacity: 0.35;">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="16" fill="#7C3AED" opacity="0.15"/>
+            <path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+    </div>
+    <p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: #475569; font-weight: 500;">
+        Upload a file and click <strong style="color: #7C3AED;">Run Analysis</strong> to get started
+    </p>
+    <p style="font-size: 0.82rem; color: #334155; margin-top: 8px;">
+        Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
+    </p>
+</div>
+""", unsafe_allow_html=True)
         return
 
     # ── Load results from state ───────────────────────────────────────────────
@@ -621,35 +621,35 @@ def main():
     m1, m2, m3, m4 = st.columns(4, gap="medium")
     with m1:
         st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Total Reviews</div>
-            <div class="metric-value">{total}</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="metric-card">
+    <div class="metric-label">Total Reviews</div>
+    <div class="metric-value">{total}</div>
+</div>
+""", unsafe_allow_html=True)
     with m2:
         st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Positive</div>
-            <div class="metric-value positive">{pos_pct}%</div>
-            <div style="font-size:0.78rem; color:#64748B;">{pos} reviews</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="metric-card">
+    <div class="metric-label">Positive</div>
+    <div class="metric-value positive">{pos_pct}%</div>
+    <div style="font-size:0.78rem; color:#64748B;">{pos} reviews</div>
+</div>
+""", unsafe_allow_html=True)
     with m3:
         st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Negative</div>
-            <div class="metric-value negative">{neg_pct}%</div>
-            <div style="font-size:0.78rem; color:#64748B;">{neg} reviews</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="metric-card">
+    <div class="metric-label">Negative</div>
+    <div class="metric-value negative">{neg_pct}%</div>
+    <div style="font-size:0.78rem; color:#64748B;">{neg} reviews</div>
+</div>
+""", unsafe_allow_html=True)
     with m4:
         st.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Neutral</div>
-            <div class="metric-value neutral">{neu_pct}%</div>
-            <div style="font-size:0.78rem; color:#64748B;">{neu} reviews</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="metric-card">
+    <div class="metric-label">Neutral</div>
+    <div class="metric-value neutral">{neu_pct}%</div>
+    <div style="font-size:0.78rem; color:#64748B;">{neu} reviews</div>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("<div style='height: 24px'></div>", unsafe_allow_html=True)
 
@@ -784,11 +784,11 @@ def main():
         # Executive Summary
         exec_summary = insights.get("executive_summary", "No summary available.")
         st.markdown(f"""
-        <div class="exec-summary">
-            <div class="exec-summary-title">Executive Summary</div>
-            <div class="exec-summary-text">{exec_summary}</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="exec-summary">
+    <div class="exec-summary-title">Executive Summary</div>
+    <div class="exec-summary-text">{exec_summary}</div>
+</div>
+""", unsafe_allow_html=True)
 
         # Strengths
         strengths = insights.get("top_strengths", [])
@@ -796,11 +796,11 @@ def main():
             for s in strengths:
                 text = s if isinstance(s, str) else s.get("description", str(s))
                 st.markdown(f"""
-                <div class="insight-card strength">
-                    <div class="insight-title strength">Strength</div>
-                    <div class="insight-text">{text}</div>
-                </div>
-                """, unsafe_allow_html=True)
+<div class="insight-card strength">
+    <div class="insight-title strength">Strength</div>
+    <div class="insight-text">{text}</div>
+</div>
+""", unsafe_allow_html=True)
 
         # Issues
         issues = insights.get("critical_issues", [])
@@ -808,11 +808,11 @@ def main():
             for iss in issues:
                 text = iss if isinstance(iss, str) else iss.get("description", str(iss))
                 st.markdown(f"""
-                <div class="insight-card issue">
-                    <div class="insight-title issue">Issue</div>
-                    <div class="insight-text">{text}</div>
-                </div>
-                """, unsafe_allow_html=True)
+<div class="insight-card issue">
+    <div class="insight-title issue">Issue</div>
+    <div class="insight-text">{text}</div>
+</div>
+""", unsafe_allow_html=True)
 
         # Suggestions
         suggestions = insights.get("actionable_suggestions", [])
@@ -820,11 +820,11 @@ def main():
             for sug in suggestions:
                 text = sug if isinstance(sug, str) else sug.get("suggestion", str(sug))
                 st.markdown(f"""
-                <div class="insight-card suggestion">
-                    <div class="insight-title suggestion">Recommendation</div>
-                    <div class="insight-text">{text}</div>
-                </div>
-                """, unsafe_allow_html=True)
+<div class="insight-card suggestion">
+    <div class="insight-title suggestion">Recommendation</div>
+    <div class="insight-text">{text}</div>
+</div>
+""", unsafe_allow_html=True)
 
     with cloud_col:
         wc_fig = generate_wordcloud_fig(df)
@@ -839,17 +839,17 @@ def main():
         risk = insights.get("competitive_risk", "N/A")
         if priority != "N/A" or risk != "N/A":
             st.markdown(f"""
-            <div class="glass-card" style="margin-top: 16px;">
-                <div style="margin-bottom: 12px;">
-                    <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Priority Focus</span>
-                    <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
-                </div>
-                <div>
-                    <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Competitive Risk</span>
-                    <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+<div class="glass-card" style="margin-top: 16px;">
+    <div style="margin-bottom: 12px;">
+        <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Priority Focus</span>
+        <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
+    </div>
+    <div>
+        <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Competitive Risk</span>
+        <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
     section_divider()
 
@@ -952,10 +952,10 @@ def main():
 
     # ── Footer ────────────────────────────────────────────────────────────────
     st.markdown("""
-    <div class="app-footer">
-        Product Sentiment Analyzer — Built with advanced NLP and aspect-based analysis
-    </div>
-    """, unsafe_allow_html=True)
+<div class="app-footer">
+    Product Sentiment Analyzer — Built with advanced NLP and aspect-based analysis
+</div>
+""", unsafe_allow_html=True)
 
 
 # ─── Entry Point ──────────────────────────────────────────────────────────────

@@ -18,6 +18,18 @@ class SentimentAnalyzer:
     def __init__(self, use_bert=False):
         self.vader = SentimentIntensityAnalyzer()
         
+        # Enhance VADER lexicon with product-specific words
+        custom_lexicon = {
+            "lag": -2.0, "laggy": -2.0, "heating": -2.0, "overheat": -2.5,
+            "bloated": -1.5, "expensive": -1.5, "overpriced": -2.0,
+            "fragile": -2.0, "dim": -1.5, "blurry": -1.5, "bulky": -1.5,
+            "broken": -3.0, "slow": -2.0, "sleek": 2.0, "premium": 2.5,
+            "fast": 2.0, "snappy": 2.5, "durable": 2.0, "affordable": 2.0,
+            "bargain": 2.0, "intuitive": 2.0, "bright": 1.5, "clear": 1.5,
+            "responsive": 2.0, "smooth": 2.0
+        }
+        self.vader.lexicon.update(custom_lexicon)
+        
         # Create ONE shared spaCy instance for all NLP components
         try:
             nlp = spacy.load("en_core_web_sm")
