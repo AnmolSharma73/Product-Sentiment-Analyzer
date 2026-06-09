@@ -78,7 +78,7 @@ def inject_custom_css():
 
 /* ── Global Reset ── */
 .stApp {
-background: #0a0a0f;
+background: var(--background-color);
 font-family: 'Inter', sans-serif;
 }
 .stApp > header { background: transparent !important; }
@@ -88,13 +88,13 @@ font-family: 'Inter', sans-serif;
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
 font-family: 'Space Grotesk', sans-serif !important;
-color: #E2E8F0 !important;
+color: var(--text-color) !important;
 }
-p, span, li, div { color: #CBD5E1; }
+p, span, li, div { color: var(--text-color); }
 
 /* ── Glass Card ── */
 .glass-card {
-background: rgba(17, 17, 24, 0.65);
+background: var(--secondary-background-color);
 backdrop-filter: blur(16px);
 -webkit-backdrop-filter: blur(16px);
 border: 1px solid rgba(124, 58, 237, 0.15);
@@ -110,7 +110,7 @@ transform: translateY(-2px);
 
 /* ── Metric Cards ── */
 .metric-card {
-background: rgba(17, 17, 24, 0.65);
+background: var(--secondary-background-color);
 backdrop-filter: blur(16px);
 border: 1px solid rgba(124, 58, 237, 0.12);
 border-radius: 16px;
@@ -128,9 +128,7 @@ font-family: 'Space Grotesk', sans-serif;
 font-size: 2rem;
 font-weight: 700;
 margin: 4px 0;
-background: linear-gradient(135deg, #E2E8F0, #94A3B8);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+color: var(--text-color);
 }
 .metric-value.positive { background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .metric-value.negative { background: linear-gradient(135deg, #EF4444, #F87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -154,7 +152,7 @@ padding: 8px 0 4px 0;
 font-family: 'Space Grotesk', sans-serif;
 font-size: 1.7rem;
 font-weight: 700;
-background: linear-gradient(135deg, #E2E8F0 0%, #7C3AED 50%, #06B6D4 100%);
+background: linear-gradient(135deg, var(--text-color) 0%, #7C3AED 50%, #06B6D4 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 margin: 0;
@@ -169,7 +167,7 @@ letter-spacing: 0.02em;
 
 /* ── Upload Area ── */
 .upload-zone {
-background: rgba(17, 17, 24, 0.5);
+background: var(--secondary-background-color);
 border: 2px dashed rgba(124, 58, 237, 0.25);
 border-radius: 16px;
 padding: 32px;
@@ -194,7 +192,7 @@ border: none;
 font-family: 'Space Grotesk', sans-serif;
 font-size: 1.25rem;
 font-weight: 600;
-color: #E2E8F0;
+color: var(--text-color);
 margin-bottom: 20px;
 display: flex;
 align-items: center;
@@ -209,7 +207,7 @@ border-radius: 2px;
 
 /* ── Insight Cards ── */
 .insight-card {
-background: rgba(17, 17, 24, 0.65);
+background: var(--secondary-background-color);
 backdrop-filter: blur(16px);
 border-radius: 14px;
 padding: 18px 20px;
@@ -232,7 +230,7 @@ margin-bottom: 6px;
 .insight-title.strength { color: #10B981; }
 .insight-title.issue { color: #EF4444; }
 .insight-title.suggestion { color: #F59E0B; }
-.insight-text { font-size: 0.9rem; color: #CBD5E1; line-height: 1.5; }
+.insight-text { font-size: 0.9rem; color: var(--text-color); line-height: 1.5; }
 
 /* ── Executive Summary ── */
 .exec-summary {
@@ -251,7 +249,7 @@ letter-spacing: 0.1em;
 color: #7C3AED;
 margin-bottom: 8px;
 }
-.exec-summary-text { font-size: 0.95rem; color: #E2E8F0; line-height: 1.65; }
+.exec-summary-text { font-size: 0.95rem; color: var(--text-color); line-height: 1.65; }
 
 /* ── Analyze Button ── */
 .stButton > button {
@@ -278,7 +276,7 @@ transform: translateY(-1px) !important;
 .stDownloadButton > button {
 background: rgba(17, 17, 24, 0.65) !important;
 backdrop-filter: blur(16px) !important;
-color: #E2E8F0 !important;
+color: var(--text-color) !important;
 border: 1px solid rgba(124, 58, 237, 0.25) !important;
 border-radius: 12px !important;
 font-family: 'Inter', sans-serif !important;
@@ -297,14 +295,14 @@ transform: translateY(-1px) !important;
 background: transparent;
 }
 [data-testid="stFileUploader"] > div {
-background: rgba(17, 17, 24, 0.4) !important;
+background: var(--secondary-background-color) !important;
 border: 2px dashed rgba(124, 58, 237, 0.2) !important;
 border-radius: 14px !important;
 }
 
 /* ── Toggle / Checkbox ── */
 .stCheckbox label span {
-color: #94A3B8 !important;
+color: var(--text-color) !important;
 font-size: 0.85rem !important;
 }
 
@@ -318,7 +316,7 @@ overflow: hidden;
 .streamlit-expanderHeader {
 background: rgba(17, 17, 24, 0.65) !important;
 border-radius: 12px !important;
-color: #E2E8F0 !important;
+color: var(--text-color) !important;
 font-family: 'Space Grotesk', sans-serif !important;
 }
 
@@ -327,7 +325,7 @@ font-family: 'Space Grotesk', sans-serif !important;
 background: rgba(17, 17, 24, 0.65) !important;
 border: 1px solid rgba(124, 58, 237, 0.2) !important;
 border-radius: 10px !important;
-color: #E2E8F0 !important;
+color: var(--text-color) !important;
 font-family: 'Inter', sans-serif !important;
 }
 .stTextInput input:focus {
@@ -340,7 +338,7 @@ box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15) !important;
 background: rgba(17, 17, 24, 0.65) !important;
 border: 1px solid rgba(124, 58, 237, 0.2) !important;
 border-radius: 10px !important;
-color: #E2E8F0 !important;
+color: var(--text-color) !important;
 }
 
 /* ── Multiselect ── */
@@ -357,13 +355,13 @@ border-radius: 10px !important;
 .app-footer {
 text-align: center;
 padding: 32px 0 16px 0;
-color: #475569;
+color: var(--text-color);
 font-size: 0.78rem;
 letter-spacing: 0.03em;
 }
 
 /* ── Hide Streamlit UI ── */
-#MainMenu { visibility: hidden; }
+/* MainMenu visible to allow theme toggle */
 footer { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
@@ -373,7 +371,7 @@ footer { visibility: hidden; }
 PLOTLY_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="Inter, sans-serif", color="#94A3B8", size=12),
+    font=dict(family="Inter, sans-serif", size=12),
     margin=dict(l=20, r=20, t=40, b=20),
     legend=dict(
         bgcolor="rgba(0,0,0,0)",
@@ -619,10 +617,10 @@ def main():
 <path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
 </svg>
 </div>
-<p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: #475569; font-weight: 500;">
+<p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: var(--text-color); font-weight: 500;">
 Upload a file and click <strong style="color: #7C3AED;">Run Analysis</strong> to get started
 </p>
-<p style="font-size: 0.82rem; color: #334155; margin-top: 8px;">
+<p style="font-size: 0.82rem; color: var(--text-color); margin-top: 8px;">
 Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
 </p>
 </div>
@@ -699,16 +697,16 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
             hole=0.6,
             marker=dict(colors=SENTIMENT_COLORS, line=dict(color="#0a0a0f", width=2)),
             textinfo="label+percent",
-            textfont=dict(size=12, color="#E2E8F0"),
+            textfont=dict(size=12),
             hovertemplate="<b>%{label}</b><br>Count: %{value}<br>Percentage: %{percent}<extra></extra>",
         )])
         fig_donut.update_layout(
-            title=dict(text="Sentiment Distribution", font=dict(size=15, color="#E2E8F0", family="Space Grotesk")),
+            title=dict(text="Sentiment Distribution", font=dict(size=15, family="Space Grotesk")),
             showlegend=False,
             height=380,
-            annotations=[dict(text=f"<b>{total}</b><br>Reviews", x=0.5, y=0.5, font_size=16, font_color="#94A3B8", showarrow=False)],
+            annotations=[dict(text=f"<b>{total}</b><br>Reviews", x=0.5, y=0.5, font_size=16, font_color="gray", showarrow=False)],
         )
-        st.plotly_chart(apply_plotly_theme(fig_donut), use_container_width=True)
+        st.plotly_chart(fig_donut, use_container_width=True, theme='streamlit')
         pass
 
     with chart2:
@@ -726,13 +724,13 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
                     hovertemplate="<b>%{x}</b><br>" + sentiment.title() + ": %{y:.1f}%<extra></extra>",
                 ))
             fig_bar.update_layout(
-                title=dict(text="Sentiment by Aspect", font=dict(size=15, color="#E2E8F0", family="Space Grotesk")),
+                title=dict(text="Sentiment by Aspect", font=dict(size=15, family="Space Grotesk")),
                 barmode="group",
                 height=380,
                 xaxis=dict(tickangle=-35, title=""),
                 yaxis=dict(title="Percentage (%)", range=[0, 100]),
             )
-            st.plotly_chart(apply_plotly_theme(fig_bar), use_container_width=True)
+            st.plotly_chart(fig_bar, use_container_width=True, theme='streamlit')
             pass
         else:
             st.info("No aspect data found in reviews.")
@@ -765,16 +763,16 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
             ],
             text=[[f"{v:.1f}%" for v in row] for row in heatmap_data],
             texttemplate="%{text}",
-            textfont=dict(size=13, color="#E2E8F0"),
+            textfont=dict(size=13),
             hovertemplate="<b>%{y}</b><br>%{x}: %{z:.1f}%<extra></extra>",
             showscale=False,
         ))
         fig_heat.update_layout(
-            title=dict(text="Aspect Sentiment Heatmap", font=dict(size=15, color="#E2E8F0", family="Space Grotesk")),
+            title=dict(text="Aspect Sentiment Heatmap", font=dict(size=15, family="Space Grotesk")),
             height=max(280, len(aspect_names) * 50 + 80),
             yaxis=dict(autorange="reversed"),
         )
-        st.plotly_chart(apply_plotly_theme(fig_heat), use_container_width=True)
+        st.plotly_chart(fig_heat, use_container_width=True, theme='streamlit')
         pass
 
         st.markdown("<div style='height: 16px'></div>", unsafe_allow_html=True)
@@ -790,13 +788,13 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
                         hole=0.55,
                         marker=dict(colors=SENTIMENT_COLORS, line=dict(color="#0a0a0f", width=1.5)),
                         textinfo="percent",
-                        textfont=dict(size=11, color="#E2E8F0"),
+                        textfont=dict(size=11),
                     )])
                     fig_mini.update_layout(
                         showlegend=False, height=200,
                         margin=dict(l=10, r=10, t=10, b=10),
                     )
-                    st.plotly_chart(apply_plotly_theme(fig_mini), use_container_width=True, key=f"pie_{a['aspect_key']}")
+                    st.plotly_chart(fig_mini, use_container_width=True, theme='streamlit', key=f"pie_{a['aspect_key']}")
                 with detail2:
                     st.markdown(f"**Avg. Score:** `{a['avg_score']}`")
                     phrases = [p for p in a["phrases"] if isinstance(p, str) and p.strip()]
@@ -878,11 +876,11 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
 <div class="glass-card" style="margin-top: 16px;">
 <div style="margin-bottom: 12px;">
 <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Priority Focus</span>
-<p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
+<p style="color:var(--text-color); margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
 </div>
 <div>
 <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Competitive Risk</span>
-<p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
+<p style="color:var(--text-color); margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
 </div>
 </div>
 """, unsafe_allow_html=True)
