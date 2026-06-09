@@ -12,6 +12,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import base64
 
 # Core Modules
 from core.file_parser import FileParser, FileParseError
