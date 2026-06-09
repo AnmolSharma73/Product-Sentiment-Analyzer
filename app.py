@@ -30,25 +30,25 @@ st.set_page_config(
 # ─── SVG Logo ─────────────────────────────────────────────────────────────────
 LOGO_SVG = """
 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C3AED"/>
-      <stop offset="100%" style="stop-color:#06B6D4"/>
-    </linearGradient>
-    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#7C3AED"/>
-      <stop offset="50%" style="stop-color:#A855F7"/>
-      <stop offset="100%" style="stop-color:#06B6D4"/>
-    </linearGradient>
-  </defs>
-  <rect width="44" height="44" rx="12" fill="url(#logoGrad)" opacity="0.15"/>
-  <rect x="1" y="1" width="42" height="42" rx="11" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
-  <g transform="translate(6, 10)">
-    <polyline points="0,18 5,14 9,20 14,8 18,16 22,4 26,14 30,10 32,12" 
-      stroke="url(#pulseGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="22" cy="4" r="3" fill="#7C3AED" opacity="0.9"/>
-    <circle cx="22" cy="4" r="5" fill="#7C3AED" opacity="0.2"/>
-  </g>
+<defs>
+<linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#7C3AED"/>
+<stop offset="100%" style="stop-color:#06B6D4"/>
+</linearGradient>
+<linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" style="stop-color:#7C3AED"/>
+<stop offset="50%" style="stop-color:#A855F7"/>
+<stop offset="100%" style="stop-color:#06B6D4"/>
+</linearGradient>
+</defs>
+<rect width="44" height="44" rx="12" fill="url(#logoGrad)" opacity="0.15"/>
+<rect x="1" y="1" width="42" height="42" rx="11" stroke="url(#logoGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+<g transform="translate(6, 10)">
+<polyline points="0,18 5,14 9,20 14,8 18,16 22,4 26,14 30,10 32,12" 
+stroke="url(#pulseGrad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="22" cy="4" r="3" fill="#7C3AED" opacity="0.9"/>
+<circle cx="22" cy="4" r="5" fill="#7C3AED" opacity="0.2"/>
+</g>
 </svg>
 """
 
@@ -77,8 +77,8 @@ def inject_custom_css():
 
 /* ── Global Reset ── */
 .stApp {
-    background: #0a0a0f;
-    font-family: 'Inter', sans-serif;
+background: #0a0a0f;
+font-family: 'Inter', sans-serif;
 }
 .stApp > header { background: transparent !important; }
 [data-testid="stSidebar"] { display: none !important; }
@@ -86,147 +86,147 @@ def inject_custom_css():
 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif !important;
-    color: #E2E8F0 !important;
+font-family: 'Space Grotesk', sans-serif !important;
+color: #E2E8F0 !important;
 }
 p, span, li, div { color: #CBD5E1; }
 
 /* ── Glass Card ── */
 .glass-card {
-    background: rgba(17, 17, 24, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(124, 58, 237, 0.15);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+background: rgba(17, 17, 24, 0.65);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid rgba(124, 58, 237, 0.15);
+border-radius: 16px;
+padding: 24px;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .glass-card:hover {
-    border-color: rgba(124, 58, 237, 0.35);
-    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
-    transform: translateY(-2px);
+border-color: rgba(124, 58, 237, 0.35);
+box-shadow: 0 8px 32px rgba(124, 58, 237, 0.08);
+transform: translateY(-2px);
 }
 
 /* ── Metric Cards ── */
 .metric-card {
-    background: rgba(17, 17, 24, 0.65);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(124, 58, 237, 0.12);
-    border-radius: 16px;
-    padding: 20px 24px;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+background: rgba(17, 17, 24, 0.65);
+backdrop-filter: blur(16px);
+border: 1px solid rgba(124, 58, 237, 0.12);
+border-radius: 16px;
+padding: 20px 24px;
+text-align: center;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .metric-card:hover {
-    border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
-    transform: translateY(-3px);
+border-color: rgba(124, 58, 237, 0.4);
+box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
+transform: translateY(-3px);
 }
 .metric-value {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 4px 0;
-    background: linear-gradient(135deg, #E2E8F0, #94A3B8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 2rem;
+font-weight: 700;
+margin: 4px 0;
+background: linear-gradient(135deg, #E2E8F0, #94A3B8);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 .metric-value.positive { background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .metric-value.negative { background: linear-gradient(135deg, #EF4444, #F87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .metric-value.neutral  { background: linear-gradient(135deg, #64748B, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .metric-label {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #64748B;
+font-size: 0.8rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: #64748B;
 }
 
 /* ── Header ── */
 .app-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 8px 0 4px 0;
+display: flex;
+align-items: center;
+gap: 16px;
+padding: 8px 0 4px 0;
 }
 .app-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.7rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #E2E8F0 0%, #7C3AED 50%, #06B6D4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0;
-    line-height: 1.2;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.7rem;
+font-weight: 700;
+background: linear-gradient(135deg, #E2E8F0 0%, #7C3AED 50%, #06B6D4 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+margin: 0;
+line-height: 1.2;
 }
 .app-subtitle {
-    font-size: 0.82rem;
-    color: #64748B;
-    margin: 0;
-    letter-spacing: 0.02em;
+font-size: 0.82rem;
+color: #64748B;
+margin: 0;
+letter-spacing: 0.02em;
 }
 
 /* ── Upload Area ── */
 .upload-zone {
-    background: rgba(17, 17, 24, 0.5);
-    border: 2px dashed rgba(124, 58, 237, 0.25);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    transition: all 0.3s ease;
+background: rgba(17, 17, 24, 0.5);
+border: 2px dashed rgba(124, 58, 237, 0.25);
+border-radius: 16px;
+padding: 32px;
+text-align: center;
+transition: all 0.3s ease;
 }
 .upload-zone:hover {
-    border-color: rgba(124, 58, 237, 0.5);
-    background: rgba(124, 58, 237, 0.04);
+border-color: rgba(124, 58, 237, 0.5);
+background: rgba(124, 58, 237, 0.04);
 }
 
 /* ── Section Divider ── */
 .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
-    margin: 36px 0;
-    border: none;
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+margin: 36px 0;
+border: none;
 }
 
 /* ── Section Heading ── */
 .section-heading {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #E2E8F0;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1.25rem;
+font-weight: 600;
+color: #E2E8F0;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 .heading-accent {
-    width: 4px;
-    height: 22px;
-    background: linear-gradient(180deg, #7C3AED, #06B6D4);
-    border-radius: 2px;
+width: 4px;
+height: 22px;
+background: linear-gradient(180deg, #7C3AED, #06B6D4);
+border-radius: 2px;
 }
 
 /* ── Insight Cards ── */
 .insight-card {
-    background: rgba(17, 17, 24, 0.65);
-    backdrop-filter: blur(16px);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin-bottom: 12px;
-    border-left: 3px solid;
-    transition: all 0.3s ease;
+background: rgba(17, 17, 24, 0.65);
+backdrop-filter: blur(16px);
+border-radius: 14px;
+padding: 18px 20px;
+margin-bottom: 12px;
+border-left: 3px solid;
+transition: all 0.3s ease;
 }
 .insight-card:hover { transform: translateX(4px); }
 .insight-card.strength { border-color: #10B981; }
 .insight-card.issue { border-color: #EF4444; }
 .insight-card.suggestion { border-color: #F59E0B; }
 .insight-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 6px;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 0.85rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+margin-bottom: 6px;
 }
 .insight-title.strength { color: #10B981; }
 .insight-title.issue { color: #EF4444; }
@@ -235,118 +235,118 @@ p, span, li, div { color: #CBD5E1; }
 
 /* ── Executive Summary ── */
 .exec-summary {
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.06));
-    border: 1px solid rgba(124, 58, 237, 0.2);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
+background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.06));
+border: 1px solid rgba(124, 58, 237, 0.2);
+border-radius: 16px;
+padding: 24px;
+margin-bottom: 24px;
 }
 .exec-summary-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #7C3AED;
-    margin-bottom: 8px;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 0.8rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #7C3AED;
+margin-bottom: 8px;
 }
 .exec-summary-text { font-size: 0.95rem; color: #E2E8F0; line-height: 1.65; }
 
 /* ── Analyze Button ── */
 .stButton > button {
-    background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 12px !important;
-    padding: 10px 32px !important;
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 0.95rem !important;
-    letter-spacing: 0.02em !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3) !important;
-    width: 100% !important;
+background: linear-gradient(135deg, #7C3AED, #6D28D9) !important;
+color: white !important;
+border: none !important;
+border-radius: 12px !important;
+padding: 10px 32px !important;
+font-family: 'Space Grotesk', sans-serif !important;
+font-weight: 600 !important;
+font-size: 0.95rem !important;
+letter-spacing: 0.02em !important;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3) !important;
+width: 100% !important;
 }
 .stButton > button:hover {
-    background: linear-gradient(135deg, #6D28D9, #5B21B6) !important;
-    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45) !important;
-    transform: translateY(-1px) !important;
+background: linear-gradient(135deg, #6D28D9, #5B21B6) !important;
+box-shadow: 0 6px 24px rgba(124, 58, 237, 0.45) !important;
+transform: translateY(-1px) !important;
 }
 
 /* ── Download Buttons ── */
 .stDownloadButton > button {
-    background: rgba(17, 17, 24, 0.65) !important;
-    backdrop-filter: blur(16px) !important;
-    color: #E2E8F0 !important;
-    border: 1px solid rgba(124, 58, 237, 0.25) !important;
-    border-radius: 12px !important;
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 500 !important;
-    transition: all 0.3s ease !important;
-    width: 100% !important;
+background: rgba(17, 17, 24, 0.65) !important;
+backdrop-filter: blur(16px) !important;
+color: #E2E8F0 !important;
+border: 1px solid rgba(124, 58, 237, 0.25) !important;
+border-radius: 12px !important;
+font-family: 'Inter', sans-serif !important;
+font-weight: 500 !important;
+transition: all 0.3s ease !important;
+width: 100% !important;
 }
 .stDownloadButton > button:hover {
-    border-color: rgba(124, 58, 237, 0.5) !important;
-    background: rgba(124, 58, 237, 0.1) !important;
-    transform: translateY(-1px) !important;
+border-color: rgba(124, 58, 237, 0.5) !important;
+background: rgba(124, 58, 237, 0.1) !important;
+transform: translateY(-1px) !important;
 }
 
 /* ── File uploader ── */
 [data-testid="stFileUploader"] {
-    background: transparent;
+background: transparent;
 }
 [data-testid="stFileUploader"] > div {
-    background: rgba(17, 17, 24, 0.4) !important;
-    border: 2px dashed rgba(124, 58, 237, 0.2) !important;
-    border-radius: 14px !important;
+background: rgba(17, 17, 24, 0.4) !important;
+border: 2px dashed rgba(124, 58, 237, 0.2) !important;
+border-radius: 14px !important;
 }
 
 /* ── Toggle / Checkbox ── */
 .stCheckbox label span {
-    color: #94A3B8 !important;
-    font-size: 0.85rem !important;
+color: #94A3B8 !important;
+font-size: 0.85rem !important;
 }
 
 /* ── Data frame ── */
 [data-testid="stDataFrame"] {
-    border-radius: 12px;
-    overflow: hidden;
+border-radius: 12px;
+overflow: hidden;
 }
 
 /* ── Expander ── */
 .streamlit-expanderHeader {
-    background: rgba(17, 17, 24, 0.65) !important;
-    border-radius: 12px !important;
-    color: #E2E8F0 !important;
-    font-family: 'Space Grotesk', sans-serif !important;
+background: rgba(17, 17, 24, 0.65) !important;
+border-radius: 12px !important;
+color: #E2E8F0 !important;
+font-family: 'Space Grotesk', sans-serif !important;
 }
 
 /* ── Text input ── */
 .stTextInput input {
-    background: rgba(17, 17, 24, 0.65) !important;
-    border: 1px solid rgba(124, 58, 237, 0.2) !important;
-    border-radius: 10px !important;
-    color: #E2E8F0 !important;
-    font-family: 'Inter', sans-serif !important;
+background: rgba(17, 17, 24, 0.65) !important;
+border: 1px solid rgba(124, 58, 237, 0.2) !important;
+border-radius: 10px !important;
+color: #E2E8F0 !important;
+font-family: 'Inter', sans-serif !important;
 }
 .stTextInput input:focus {
-    border-color: rgba(124, 58, 237, 0.5) !important;
-    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15) !important;
+border-color: rgba(124, 58, 237, 0.5) !important;
+box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15) !important;
 }
 
 /* ── Select box ── */
 .stSelectbox > div > div {
-    background: rgba(17, 17, 24, 0.65) !important;
-    border: 1px solid rgba(124, 58, 237, 0.2) !important;
-    border-radius: 10px !important;
-    color: #E2E8F0 !important;
+background: rgba(17, 17, 24, 0.65) !important;
+border: 1px solid rgba(124, 58, 237, 0.2) !important;
+border-radius: 10px !important;
+color: #E2E8F0 !important;
 }
 
 /* ── Multiselect ── */
 .stMultiSelect > div > div {
-    background: rgba(17, 17, 24, 0.65) !important;
-    border: 1px solid rgba(124, 58, 237, 0.2) !important;
-    border-radius: 10px !important;
+background: rgba(17, 17, 24, 0.65) !important;
+border: 1px solid rgba(124, 58, 237, 0.2) !important;
+border-radius: 10px !important;
 }
 
 /* ── Spinner ── */
@@ -354,11 +354,11 @@ p, span, li, div { color: #CBD5E1; }
 
 /* ── Footer ── */
 .app-footer {
-    text-align: center;
-    padding: 32px 0 16px 0;
-    color: #475569;
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
+text-align: center;
+padding: 32px 0 16px 0;
+color: #475569;
+font-size: 0.78rem;
+letter-spacing: 0.03em;
 }
 
 /* ── Hide Streamlit UI ── */
@@ -451,8 +451,8 @@ def generate_wordcloud_fig(df):
 def section_heading(title):
     st.markdown(f"""
 <div class="section-heading">
-    <div class="heading-accent"></div>
-    {title}
+<div class="heading-accent"></div>
+{title}
 </div>
 """, unsafe_allow_html=True)
 
@@ -505,11 +505,11 @@ def main():
     # ── Header ────────────────────────────────────────────────────────────────
     st.markdown(f"""
 <div class="app-header">
-    {LOGO_SVG}
-    <div>
-        <p class="app-title">Product Sentiment Analyzer</p>
-        <p class="app-subtitle">Aspect-based sentiment analysis with actionable insights</p>
-    </div>
+{LOGO_SVG}
+<div>
+<p class="app-title">Product Sentiment Analyzer</p>
+<p class="app-subtitle">Aspect-based sentiment analysis with actionable insights</p>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -580,18 +580,18 @@ def main():
     if "df" not in st.session_state:
         st.markdown("""
 <div style="text-align:center; padding: 80px 20px 60px 20px;">
-    <div style="margin-bottom: 20px; opacity: 0.35;">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="16" fill="#7C3AED" opacity="0.15"/>
-            <path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-    </div>
-    <p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: #475569; font-weight: 500;">
-        Upload a file and click <strong style="color: #7C3AED;">Run Analysis</strong> to get started
-    </p>
-    <p style="font-size: 0.82rem; color: #334155; margin-top: 8px;">
-        Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
-    </p>
+<div style="margin-bottom: 20px; opacity: 0.35;">
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="16" fill="#7C3AED" opacity="0.15"/>
+<path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+</svg>
+</div>
+<p style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: #475569; font-weight: 500;">
+Upload a file and click <strong style="color: #7C3AED;">Run Analysis</strong> to get started
+</p>
+<p style="font-size: 0.82rem; color: #334155; margin-top: 8px;">
+Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
+</p>
 </div>
 """, unsafe_allow_html=True)
         return
@@ -622,32 +622,32 @@ def main():
     with m1:
         st.markdown(f"""
 <div class="metric-card">
-    <div class="metric-label">Total Reviews</div>
-    <div class="metric-value">{total}</div>
+<div class="metric-label">Total Reviews</div>
+<div class="metric-value">{total}</div>
 </div>
 """, unsafe_allow_html=True)
     with m2:
         st.markdown(f"""
 <div class="metric-card">
-    <div class="metric-label">Positive</div>
-    <div class="metric-value positive">{pos_pct}%</div>
-    <div style="font-size:0.78rem; color:#64748B;">{pos} reviews</div>
+<div class="metric-label">Positive</div>
+<div class="metric-value positive">{pos_pct}%</div>
+<div style="font-size:0.78rem; color:#64748B;">{pos} reviews</div>
 </div>
 """, unsafe_allow_html=True)
     with m3:
         st.markdown(f"""
 <div class="metric-card">
-    <div class="metric-label">Negative</div>
-    <div class="metric-value negative">{neg_pct}%</div>
-    <div style="font-size:0.78rem; color:#64748B;">{neg} reviews</div>
+<div class="metric-label">Negative</div>
+<div class="metric-value negative">{neg_pct}%</div>
+<div style="font-size:0.78rem; color:#64748B;">{neg} reviews</div>
 </div>
 """, unsafe_allow_html=True)
     with m4:
         st.markdown(f"""
 <div class="metric-card">
-    <div class="metric-label">Neutral</div>
-    <div class="metric-value neutral">{neu_pct}%</div>
-    <div style="font-size:0.78rem; color:#64748B;">{neu} reviews</div>
+<div class="metric-label">Neutral</div>
+<div class="metric-value neutral">{neu_pct}%</div>
+<div style="font-size:0.78rem; color:#64748B;">{neu} reviews</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -785,8 +785,8 @@ def main():
         exec_summary = insights.get("executive_summary", "No summary available.")
         st.markdown(f"""
 <div class="exec-summary">
-    <div class="exec-summary-title">Executive Summary</div>
-    <div class="exec-summary-text">{exec_summary}</div>
+<div class="exec-summary-title">Executive Summary</div>
+<div class="exec-summary-text">{exec_summary}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -797,8 +797,8 @@ def main():
                 text = s if isinstance(s, str) else s.get("description", str(s))
                 st.markdown(f"""
 <div class="insight-card strength">
-    <div class="insight-title strength">Strength</div>
-    <div class="insight-text">{text}</div>
+<div class="insight-title strength">Strength</div>
+<div class="insight-text">{text}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -809,8 +809,8 @@ def main():
                 text = iss if isinstance(iss, str) else iss.get("description", str(iss))
                 st.markdown(f"""
 <div class="insight-card issue">
-    <div class="insight-title issue">Issue</div>
-    <div class="insight-text">{text}</div>
+<div class="insight-title issue">Issue</div>
+<div class="insight-text">{text}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -821,8 +821,8 @@ def main():
                 text = sug if isinstance(sug, str) else sug.get("suggestion", str(sug))
                 st.markdown(f"""
 <div class="insight-card suggestion">
-    <div class="insight-title suggestion">Recommendation</div>
-    <div class="insight-text">{text}</div>
+<div class="insight-title suggestion">Recommendation</div>
+<div class="insight-text">{text}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -840,14 +840,14 @@ def main():
         if priority != "N/A" or risk != "N/A":
             st.markdown(f"""
 <div class="glass-card" style="margin-top: 16px;">
-    <div style="margin-bottom: 12px;">
-        <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Priority Focus</span>
-        <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
-    </div>
-    <div>
-        <span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Competitive Risk</span>
-        <p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
-    </div>
+<div style="margin-bottom: 12px;">
+<span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Priority Focus</span>
+<p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{priority}</p>
+</div>
+<div>
+<span style="font-size:0.78rem; color:#64748B; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Competitive Risk</span>
+<p style="color:#E2E8F0; margin: 4px 0 0 0; font-size: 0.92rem;">{risk}</p>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -953,7 +953,7 @@ def main():
     # ── Footer ────────────────────────────────────────────────────────────────
     st.markdown("""
 <div class="app-footer">
-    Product Sentiment Analyzer — Built with advanced NLP and aspect-based analysis
+Product Sentiment Analyzer — Built with advanced NLP and aspect-based analysis
 </div>
 """, unsafe_allow_html=True)
 
