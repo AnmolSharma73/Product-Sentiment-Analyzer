@@ -519,10 +519,11 @@ def main():
     col_upload, col_settings = st.columns([3, 2], gap="large")
 
     with col_upload:
-        uploaded_file = st.file_uploader(
+        uploaded_files = st.file_uploader(
             "Upload product reviews",
             type=["csv", "xlsx", "xls", "json", "jsonl", "txt", "pdf", "docx", "xml", "parquet"],
             help="Supported formats: CSV, Excel, JSON, JSONL, TXT, PDF, DOCX, XML, Parquet",
+            accept_multiple_files=True,
         )
 
     with col_settings:
@@ -539,20 +540,26 @@ def main():
         analyze_clicked = st.button("Run Analysis", use_container_width=True)
 
     # ── State Management ──────────────────────────────────────────────────────
-    if analyze_clicked and uploaded_file is not None:
-        with st.spinner("Parsing file..."):
-            try:
-                file_bytes = uploaded_file.read()
-                reviews = process_file_data(file_bytes, uploaded_file.name)
-            except FileParseError as e:
-                st.error(f"File parsing failed: {e}")
-                return
-            except Exception as e:
-                st.error(f"Unexpected error during parsing: {e}")
-                return
+    if analyze_clicked and uploaded_files:
+        with st.spinner("Parsing files..."):
+            all_reviews = []
+            for f in uploaded_files:
+                try:
+                    file_bytes = f.read()
+                    file_reviews = process_file_data(file_bytes, f.name)
+                    if file_reviews:
+                        all_reviews.extend(file_reviews)
+                except FileParseError as e:
+                    st.error(f"File parsing failed for {f.name}: {e}")
+                    return
+                except Exception as e:
+                    st.error(f"Unexpected error during parsing {f.name}: {e}")
+                    return
+            
+            reviews = all_reviews
 
         if not reviews:
-            st.warning("No reviews found in the uploaded file. Please check the file format.")
+            st.warning("No reviews found in the uploaded files. Please check the file formats.")
             return
 
         with st.spinner(f"Analyzing {len(reviews)} reviews..."):
@@ -565,8 +572,8 @@ def main():
         st.session_state["insights"] = insights
         st.session_state["product_name"] = product_name
 
-    elif analyze_clicked and uploaded_file is None:
-        st.warning("Please upload a file first.")
+    elif analyze_clicked and not uploaded_files:
+        st.warning("Please upload at least one file first.")
         return
 
     # ── Guard: No results yet ─────────────────────────────────────────────────
