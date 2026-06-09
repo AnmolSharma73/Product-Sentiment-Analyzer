@@ -796,7 +796,7 @@ Supports CSV, Excel, JSON, PDF, DOCX, TXT, XML, and Parquet formats
                         showlegend=False, height=200,
                         margin=dict(l=10, r=10, t=10, b=10),
                     )
-                    st.plotly_chart(apply_plotly_theme(fig_mini), use_container_width=True)
+                    st.plotly_chart(apply_plotly_theme(fig_mini), use_container_width=True, key=f"pie_{a['aspect_key']}")
                 with detail2:
                     st.markdown(f"**Avg. Score:** `{a['avg_score']}`")
                     phrases = [p for p in a["phrases"] if isinstance(p, str) and p.strip()]
