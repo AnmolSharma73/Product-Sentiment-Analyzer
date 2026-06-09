@@ -1,64 +1,59 @@
 # ============================================================
 # Product Sentiment Analyzer — Dependencies
 # ============================================================
-# Installation:
-#   pip install -r requirements.txt
-#   python -m spacy download en_core_web_sm
-#   streamlit run app.py
-# ============================================================
 
 # --- UI / Dashboard ---
-streamlit==1.45.1
+streamlit
 
 # --- AI / LLM ---
-anthropic==0.52.0
+anthropic
 
 # --- NLP / Deep Learning ---
 transformers
 torch
-spacy==3.8.7
-nltk==3.9.1
+spacy
+nltk
 
 # --- Sentiment Analysis ---
-vaderSentiment==3.3.2
+vaderSentiment
 
 # --- Data Manipulation ---
-pandas==2.2.3
-numpy==2.2.6
+pandas
+numpy
 
 # --- Visualization ---
-plotly==6.1.2
-matplotlib==3.10.3
-wordcloud==1.9.4
+plotly
+matplotlib
+wordcloud
 
 # --- Excel Support ---
-openpyxl==3.1.5
+openpyxl
 
 # --- PDF Reading ---
-pdfplumber==0.11.6
-pypdf2==3.0.1
+pdfplumber
+pypdf2
 
 # --- Document Handling ---
-python-docx==1.1.2
+python-docx
 
 # --- PDF Report Generation ---
-reportlab==4.4.0
+reportlab
 
 # --- XML Parsing ---
-beautifulsoup4==4.13.4
-lxml==5.4.0
+beautifulsoup4
+lxml
 
 # --- Parquet Support ---
-pyarrow==20.0.0
-fastparquet==2024.11.0
+pyarrow
+fastparquet
 
 # --- Machine Learning ---
-scikit-learn==1.6.1
+scikit-learn
 
 # --- Environment Variables ---
-python-dotenv==1.1.0
+python-dotenv
 
 # --- Utilities ---
-contractions==0.1.73
-kaleido==0.2.1
-emoji==2.14.0
+contractions
+kaleido
+emoji
