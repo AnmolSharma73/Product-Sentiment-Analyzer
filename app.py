@@ -527,6 +527,8 @@ def main():
                 help="Supported formats: CSV, Excel, JSON, JSONL, TXT, PDF, DOCX, XML, Parquet",
                 accept_multiple_files=True,
             )
+            st.markdown("<div style='height: 8px'></div>", unsafe_allow_html=True)
+            use_sample = st.button("Use Sample Data", help="Load test data to see how the app works")
 
         with col_settings:
             product_name = st.text_input(
@@ -576,8 +578,34 @@ def main():
         st.session_state["product_name"] = product_name
         st.session_state["charts"] = []
 
+    elif use_sample:
+        reviews = [
+            "The battery life on this smartwatch is absolutely terrible, it dies within 4 hours.",
+            "I love the sleek design and the bright screen, very premium feel.",
+            "Heart rate tracking is incredibly inaccurate when I'm running.",
+            "The strap is quite comfortable and doesn't irritate my skin.",
+            "Setup was very confusing and the companion app keeps crashing.",
+            "Notifications sync instantly, it's super responsive.",
+            "A bit overpriced for the features it offers, but decent overall.",
+            "Water resistance works great, I take it swimming every day.",
+            "The step counter is completely broken and lags all the time.",
+            "Customer support was very helpful when I had an issue.",
+            "The charging cable is too short and feels cheap.",
+            "I highly recommend this to anyone looking for an affordable fitness tracker."
+        ]
+        with st.spinner(f"Analyzing {len(reviews)} sample reviews..."):
+            df = analyze_reviews(reviews, use_bert=use_bert)
+
+        with st.spinner("Generating insights..."):
+            insights = get_insights(df, "Sample Smartwatch")
+
+        st.session_state["df"] = df
+        st.session_state["insights"] = insights
+        st.session_state["product_name"] = "Sample Smartwatch"
+        st.session_state["charts"] = []
+
     elif analyze_clicked and not uploaded_files:
-        st.warning("Please upload at least one file first.")
+        st.warning("Please upload at least one file first or use sample data.")
         return
 
     # ── Guard: No results yet ─────────────────────────────────────────────────
