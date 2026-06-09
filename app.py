@@ -502,8 +502,11 @@ def compute_aspect_data(df):
 def main():
     inject_custom_css()
 
-    # ── Header ────────────────────────────────────────────────────────────────
-    st.markdown(f"""
+    # ── Centered Control Panel ────────────────────────────────────────────────
+    _, main_panel, _ = st.columns([1, 3, 1])
+    
+    with main_panel:
+        st.markdown(f"""
 <div class="app-header">
 {LOGO_SVG}
 <div>
@@ -513,31 +516,31 @@ def main():
 </div>
 """, unsafe_allow_html=True)
 
-    st.markdown("<div style='height: 12px'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 24px'></div>", unsafe_allow_html=True)
 
-    # ── Upload & Controls ─────────────────────────────────────────────────────
-    col_upload, col_settings = st.columns([3, 2], gap="large")
+        col_upload, col_settings = st.columns([1, 1], gap="large")
 
-    with col_upload:
-        uploaded_files = st.file_uploader(
-            "Upload product reviews",
-            type=["csv", "xlsx", "xls", "json", "jsonl", "txt", "pdf", "docx", "xml", "parquet"],
-            help="Supported formats: CSV, Excel, JSON, JSONL, TXT, PDF, DOCX, XML, Parquet",
-            accept_multiple_files=True,
-        )
+        with col_upload:
+            uploaded_files = st.file_uploader(
+                "Upload product reviews",
+                type=["csv", "xlsx", "xls", "json", "jsonl", "txt", "pdf", "docx", "xml", "parquet"],
+                help="Supported formats: CSV, Excel, JSON, JSONL, TXT, PDF, DOCX, XML, Parquet",
+                accept_multiple_files=True,
+            )
 
-    with col_settings:
-        product_name = st.text_input(
-            "Product name",
-            value="My Product",
-            help="Used in reports and insights generation",
-        )
-        use_bert = st.checkbox(
-            "Enable DeBERTa model (slower, higher accuracy)",
-            value=False,
-            help="Uses a fine-tuned DeBERTa V3 model for aspect-level sentiment. Requires ~500MB download on first use.",
-        )
-        analyze_clicked = st.button("Run Analysis", use_container_width=True)
+        with col_settings:
+            product_name = st.text_input(
+                "Product name",
+                value="My Product",
+                help="Used in reports and insights generation",
+            )
+            use_bert = st.checkbox(
+                "Enable DeBERTa model (slower, higher accuracy)",
+                value=False,
+                help="Uses a fine-tuned DeBERTa V3 model for aspect-level sentiment. Requires ~500MB download on first use.",
+            )
+            st.markdown("<div style='height: 12px'></div>", unsafe_allow_html=True)
+            analyze_clicked = st.button("Run Analysis", use_container_width=True)
 
     # ── State Management ──────────────────────────────────────────────────────
     if analyze_clicked and uploaded_files:
@@ -580,7 +583,7 @@ def main():
     if "df" not in st.session_state:
         st.markdown("""
 <div style="text-align:center; padding: 80px 20px 60px 20px;">
-<div style="margin-bottom: 20px; opacity: 0.35;">
+<div style="margin-bottom: 20px; opacity: 0.7;" class="floating-icon">
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="64" height="64" rx="16" fill="#7C3AED" opacity="0.15"/>
 <path d="M20 44V28M32 44V20M44 44V32" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
