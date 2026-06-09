@@ -95,8 +95,8 @@ class AspectExtractor:
         doc = self.nlp(text_lower)
         aspects_found: Dict[str, List[str]] = {}
         
-        # Split text into words for n-gram generation
-        words = text_lower.split()
+        # Split text into words using spaCy tokens for n-gram generation (handles punctuation)
+        words = [t.text for t in doc]
         
         # Track which word positions have been matched to avoid duplicates
         matched_positions = set()
@@ -116,11 +116,10 @@ class AspectExtractor:
                     
                     # Find a representative token in the spaCy doc for opinion extraction
                     # Use the last word of the n-gram as the anchor token
-                    anchor_word = ngram.split()[-1]
                     phrase = ngram  # default phrase is the keyword itself
                     
                     for token in doc:
-                        if token.text == anchor_word and token.i >= i and token.i < i + n + 2:
+                        if token.i == i + n - 1: # The exact token index of the last word in the n-gram
                             phrase = self._extract_opinion_phrases(doc, token)
                             break
                     
