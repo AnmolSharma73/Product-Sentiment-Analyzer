@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - APP_ENV=production
+      - DATABASE_URL=sqlite:////app/data/copilot.db
+      - VECTOR_STORE_PATH=/app/data/faiss_index
+      - LLM_PROVIDER=${LLM_PROVIDER:-}
+      - LLM_API_KEY=${LLM_API_KEY:-}
+      - LLM_MODEL=${LLM_MODEL:-gpt-4o-mini}
+      - ENABLE_ASYNC_JOBS=${ENABLE_ASYNC_JOBS:-false}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command: uvicorn app.api.main:app --host 0.0.0.0 --port 8000
+
+  frontend:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      - api
+    command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+
+  # Optional Redis for async batch jobs
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    profiles:
+      - async  # Only started when: docker compose --profile async up
+
+  # Optional Celery worker
+  worker:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - ENABLE_ASYNC_JOBS=true
+    depends_on:
+      - redis
+    profiles:
+      - async
+    command: celery -A app.workers.tasks worker --loglevel=info
+
+volumes:
+  redis_data:

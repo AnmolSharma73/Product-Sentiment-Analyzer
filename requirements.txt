@@ -54,3 +54,20 @@ contractions
 kaleido
 emoji
 sentencepiece
+
+# --- REST API Backend ---
+fastapi
+uvicorn[standard]
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+httpx
+
+# --- RAG & Vector Search (Offline) ---
+sentence-transformers
+faiss-cpu
+
+# --- Testing & Quality Assurance ---
+pytest
+pytest-cov
+ruff
+

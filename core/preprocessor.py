@@ -1,20 +1,10 @@
 import re
 import spacy
-import nltk
-from nltk.tokenize import sent_tokenize
 import pandas as pd
 from typing import List, Optional, Any
 import contractions
 from utils.constants import NEGATION_WORDS
 from utils.helpers import setup_logger
-
-# Ensure NLTK punkt is downloaded for sentence tokenization
-try:
-    nltk.data.find('tokenizers/punkt')
-    nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    nltk.download('punkt')
-    nltk.download('punkt_tab')
 
 logger = setup_logger(__name__)
 
@@ -80,10 +70,11 @@ class Preprocessor:
         return list(self.nlp(text))
         
     def get_sentences(self, text: str) -> List[str]:
-        """Splits text into sentences using NLTK."""
+        """Splits text into sentences using sentence punctuation."""
         if not text:
             return []
-        return sent_tokenize(text)
+        sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+        return sentences or [text]
         
     def remove_stopwords(self, tokens: List[Any]) -> List[str]:
         """

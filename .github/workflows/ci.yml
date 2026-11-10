@@ -1,0 +1,68 @@
+name: CI — Customer Insights Copilot
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint-and-test:
+    name: Lint, Type-Check & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov ruff pydantic-settings fastapi httpx
+
+      - name: Download spaCy model
+        run: python -m spacy download en_core_web_sm
+
+      - name: Lint with Ruff
+        run: ruff check . --ignore E501,F401 --exclude venv,node_modules
+
+      - name: Run unit tests (lightweight — no GPU required)
+        run: |
+          pytest tests/unit/ -v --tb=short \
+            --ignore=tests/unit/test_core_modules.py \
+            -k "not bert and not deberta"
+
+      - name: Run schema & API smoke tests
+        run: |
+          pytest tests/unit/test_core_modules.py \
+            -k "schema or empty or batch_analysis_returns" \
+            -v --tb=short
+
+      - name: Run API endpoint tests
+        run: |
+          pytest tests/api/ -v --tb=short \
+            -k "health or ready or analyze_sentiment or analyze_sentiment_empty or rag_query_no"
+
+  docker-build:
+    name: Docker Build Validation
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t copilot:ci .
+
+      - name: Validate health endpoint
+        run: |
+          docker run -d -p 8000:8000 --name copilot_test copilot:ci
+          sleep 20
+          curl -f http://localhost:8000/health || (docker logs copilot_test && exit 1)
+          docker stop copilot_test
